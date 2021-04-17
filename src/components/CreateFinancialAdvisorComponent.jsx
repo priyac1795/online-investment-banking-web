@@ -6,7 +6,8 @@ class CreateFinancialAdvisor extends Component {
         lastName: '',
         emailId: '',
         mobileNo: '',
-        branchNo: ''
+        branchNo: '',
+        financialAdvisor: []
       }
 
     changeFirstNameHandler = (e)=>{
@@ -27,16 +28,16 @@ class CreateFinancialAdvisor extends Component {
 
     saveFinancialAdvisor= (e)=>{
         e.preventDefault();
-        let financialAdvisor = {
+        this.state.financialAdvisor = {
             firstName: this.state.firstName, 
             lastName: this.state.lastName, 
             emailId: this.state.emailId, 
             mobileNo: this.state.mobileNo, 
             branchNo: this.state.branchNo
          };
-        console.log(JSON.stringify(financialAdvisor));
+        console.log(JSON.stringify(this.state.financialAdvisor));
 
-        FinancialAdvisorService.createFA(financialAdvisor).then( response =>{
+        FinancialAdvisorService.createFA(this.state.financialAdvisor).then( response =>{
            this.props.history.push('/online_investment_banking/getFAlist')
         } );
     }

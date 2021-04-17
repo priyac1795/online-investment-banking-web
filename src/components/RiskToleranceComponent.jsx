@@ -33,6 +33,7 @@ class RiskToleranceComponent extends Component {
        console.log("Low risk")
        this.setState({risk: "LowRisk"})
        this.state.lowRisk =0
+       this.props.history.push("/online_investment_banking/lowriskGoal")
        }
        else if(this.state.medRisk ===2 || this.state.medRisk >2){
        console.log("Med risk")
@@ -53,9 +54,7 @@ class RiskToleranceComponent extends Component {
             <div className="title">
               <h1>Risk Tolerance Questionnaire</h1>
             </div>
-            <div>
-              <DialogFragmentComponent riskFromRiskTolerance = {this.state.risk}/>
-            </div>
+           
             <div >
               <h2>What is your comfort with Risk?</h2>
             </div>

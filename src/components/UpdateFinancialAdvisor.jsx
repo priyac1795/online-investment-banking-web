@@ -37,7 +37,7 @@ class UpdateFinancialAdvisor extends Component {
             mobileNo: this.state.mobileNo, 
             branchNo: this.state.branchNo
          }; 
-       FinancialAdvisorService.updateFA(this.state.id, financialAdvisor).then(()=>
+       FinancialAdvisorService.updateFA(this.state.id, financialAdvisor).then((res)=>
        {
            this.props.history.push('/online_investment_banking/getFAlist');
        })
