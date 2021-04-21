@@ -33,12 +33,13 @@ class RiskToleranceComponent extends Component {
        console.log("Low risk")
        this.setState({risk: "LowRisk"})
        this.state.lowRisk =0
-       this.props.history.push("/online_investment_banking/lowriskGoal")
+       this.props.history.push("/online_investment_banking/lowRiskGoal")
        }
        else if(this.state.medRisk ===2 || this.state.medRisk >2){
        console.log("Med risk")
        this.setState({risk: "MediumRisk"})
        this.state.medRisk =0
+       this.props.history.push("/online_investment_banking/medRiskGoal")
        }
        else{
            console.log("High Risk")

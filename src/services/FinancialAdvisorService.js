@@ -5,6 +5,7 @@ const CreateFA_URL = "http://localhost:8080/online_investment_banking/createFA";
 const GetFA_URL = "http://localhost:8080/online_investment_banking/getFA";
 const UpdateFA_URL = "http://localhost:8080/online_investment_banking/updateFA";
 const DeleteFA_URL = "http://localhost:8080/online_investment_banking/deleteFA";
+const GetAllLowRiskIds_URL = "http://localhost:8080/online_investment_banking/getAllLowRiskIds";
 
 class FinancialAdvisorService{
    getFAlist(){
@@ -25,6 +26,11 @@ class FinancialAdvisorService{
 
    deleteFA(id){
        return axios.delete(DeleteFA_URL+"/"+id)
+   }
+
+   getAllLowRiskIds(){
+       return axios.get(GetAllLowRiskIds_URL);
+       
    }
 }
 

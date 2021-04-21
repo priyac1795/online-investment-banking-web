@@ -102,21 +102,18 @@ showBody =()=>{
             totAmtForInvest: this.props.customerAmtForInvest,
             amtToInvestEduGoal: (this.props.customerAmtForInvest)*(this.state.percentToPay)/100,
             balance: ((this.props.customerAmtForInvest)-((this.props.customerAmtForInvest)*(this.state.percentToPay)/100) - this.state.estimatedCost),
-          
-         },
-        {
           savingsFor: this.state.savingsFor,
           estimatedCost: this.state.estimatedCost,
           monthlySavings: this.state.monthlySavings
         }
         ];
          console.log(JSON.stringify(this.state.lowRiskGoal));
-        // EducationGoalService.createEducationGoal(this.state.educationGoal).then(response =>{
-       //  })
+   
     }
    render() { 
         return ( 
           <div>
+            <h1>Low Risk</h1>
               <Card>
   <Card.Header as="h5">Education Goal
   <button onClick = {this.showBody} >Click</button>
