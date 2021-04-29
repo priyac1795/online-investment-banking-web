@@ -33,7 +33,7 @@ class RiskToleranceComponent extends Component {
        console.log("Low risk")
        this.setState({risk: "LowRisk"})
        this.state.lowRisk =0
-       this.props.history.push("/online_investment_banking/lowRiskGoal")
+       this.props.history.push("/online_investment_banking/createCustomer")
        }
        else if(this.state.medRisk ===2 || this.state.medRisk >2){
        console.log("Med risk")
@@ -45,6 +45,7 @@ class RiskToleranceComponent extends Component {
            console.log("High Risk")
            this.setState({risk: "HighRisk"})
            this.state.highRisk =0
+           this.props.history.push("/online_investment_banking/highRiskGoal")
        }
     }
 
@@ -202,11 +203,12 @@ class RiskToleranceComponent extends Component {
         </div>
             </div>
             </div>
-        </div>
+        
         <br/>
         <button className="btn btn-primary" type="submit">
           Submit
         </button>
+        </div>
         </form> 
         );
         

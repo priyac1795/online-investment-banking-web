@@ -10,13 +10,13 @@ class HeaderComponent extends Component {
              <div>Online Investment Banking</div>
              <ul className="navbar-nav">
     <li className="nav-item active">
-      <a className="nav-link" href="#">Home</a>
+      <a className="nav-link" href="/online_investment_banking/home">Home</a>
     </li>
-    <li className="nav-item">
-      <a className="nav-link" href="#">About Us</a>
+    <li className="nav-item active">
+      <a className="nav-link" href="/online_investment_banking/aboutUs">About Us</a>
     </li>
-    <li className="nav-item">
-      <a className="nav-link" href="#">Contact Us</a>
+    <li className="nav-item active">
+      <a className="nav-link" href="/online_investment_banking/contactUs">Contact Us</a>
     </li>
   
   </ul>

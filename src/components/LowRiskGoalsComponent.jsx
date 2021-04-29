@@ -77,9 +77,7 @@ class LowRiskGoalsComponent extends Component {
     changeEstimatedCostHandler =(e)=>{
       this.setState({estimatedCost: e.target.value})
     }
-    changeMonthlySavingsHandler =(e)=>{
-      this.setState({monthlySavings: e.target.value})
-    }
+
 
 showBody =()=>{
   this.setState({
@@ -100,11 +98,11 @@ showBody =()=>{
             annualFee: this.state.annualFee,
             percentToPay: this.state.percentToPay,
             totAmtForInvest: this.props.customerAmtForInvest,
-            amtToInvestEduGoal: (this.props.customerAmtForInvest)*(this.state.percentToPay)/100,
-            balance: ((this.props.customerAmtForInvest)-((this.props.customerAmtForInvest)*(this.state.percentToPay)/100) - this.state.estimatedCost),
+            amtToInvestEduGoal: parseFloat((this.props.customerAmtForInvest)*(this.state.percentToPay)/100).toFixed(2),
+            balance: parseFloat(((this.props.customerAmtForInvest)-((this.props.customerAmtForInvest)*(this.state.percentToPay)/100) - this.state.estimatedCost)).toFixed(2),
           savingsFor: this.state.savingsFor,
           estimatedCost: this.state.estimatedCost,
-          monthlySavings: this.state.monthlySavings
+          monthlySavings: this.state.estimatedCost/12
         }
         ];
          console.log(JSON.stringify(this.state.lowRiskGoal));
@@ -163,7 +161,7 @@ showBody =()=>{
       <tr>
          <td> <label> Amount to invest per annum:</label></td>
          <td> <input readOnly name="amtToInvestEduGoal"
-        value={(this.props.customerAmtForInvest)*(this.state.percentToPay)/100} 
+        value={parseFloat((this.props.customerAmtForInvest)*(this.state.percentToPay)/100).toFixed(2)} 
         onChange={this.changeAmtToInvestEduGoal}
         /></td>
       </tr>
@@ -190,7 +188,7 @@ showBody =()=>{
             <tr>
          <td> <label>Balance Investment amount for savings:</label></td>
          <td> <input readOnly name="balanceForSavings"
-        value={(this.props.customerAmtForInvest)-((this.props.customerAmtForInvest)*(this.state.percentToPay)/100)} 
+        value={parseFloat((this.props.customerAmtForInvest)-((this.props.customerAmtForInvest)*(this.state.percentToPay)/100)).toFixed(2)} 
         onInputCapture = {this.changeBalanceForSavings}
         /></td>
       </tr>
@@ -208,8 +206,8 @@ showBody =()=>{
 
          <tr> 
          <td><label>Monthly Savings:</label></td>
-         <td> <input name="monthlySavings"
-        value={this.state.estimatedCost/12} onChange={this.changeMonthlySavingsHandler}/></td>
+         <td> <input readOnly name="monthlySavings"
+        value={this.state.estimatedCost/12}/></td>
       </tr>
       </table>
      </form>
@@ -236,7 +234,7 @@ showBody =()=>{
       <tr>
          <td> <label>Balance Investment amount :</label></td>
          <td> <input readOnly name="balance"
-        value={((this.props.customerAmtForInvest)-((this.props.customerAmtForInvest)*(this.state.percentToPay)/100) - this.state.estimatedCost)} 
+        value={parseFloat(((this.props.customerAmtForInvest)-((this.props.customerAmtForInvest)*(this.state.percentToPay)/100) - this.state.estimatedCost)).toFixed(2)} 
         /></td>
       </tr>
       <tr>
@@ -250,7 +248,7 @@ showBody =()=>{
 
 <div>
 <button  className="btn btn-primary" onClick={this.saveInvestmentDetails}>Save</button>
-<button  className="btn btn-primary" onClick={()=>this.props.getGoalMethod(this.state.lowRiskGoal)}>Submit</button>
+<button  className="btn btn-primary m-2" onClick={()=>this.props.getGoalMethod(this.state.lowRiskGoal)}>Submit</button>
 </div>
  
  </div>         

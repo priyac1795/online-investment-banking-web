@@ -4,6 +4,7 @@ import { Card} from 'react-bootstrap';
 import EducationGoalComponent from './LowRiskGoalsComponent';
 import LowRiskGoalsComponent from './LowRiskGoalsComponent';
 
+
 class CustomerInvestmentProfile extends Component {
     state = {
         customerName: '',

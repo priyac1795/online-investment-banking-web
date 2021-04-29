@@ -49,11 +49,11 @@ class DisabilityInvestmentComponent extends Component {
         annualIncome: this.state.annualIncome,  
           taxPercent: this.state.taxPercent,
           employerPercent: this.state.employerPercent,
-          amtContribByEmployer: (this.state.employerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100,
+          amtContribByEmployer: parseFloat((this.state.employerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100).toFixed(2),
           customerPercent: this.state.customerPercent,
-          amtContribByCustomer: (this.state.customerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100,
-          disabilitySavings: ((this.state.employerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100 +
-          (this.state.customerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100)
+          amtContribByCustomer: parseFloat((this.state.customerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100).toFixed(2),
+          disabilitySavings: parseFloat(((this.state.employerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100 +
+          (this.state.customerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100)).toFixed(2)
        
        
      };
@@ -122,7 +122,7 @@ class DisabilityInvestmentComponent extends Component {
         <tr>
          <td> <div><label>After Tax Annual Income:</label></div></td>
          <td> <input readOnly name="afterTaxAI"
-        value={(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100)} /></td>
+        value={parseFloat((this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100)).toFixed(2)} /></td>
       </tr>  
       <tr>
           <div>
@@ -142,7 +142,7 @@ class DisabilityInvestmentComponent extends Component {
              <tr>
                  <td><label>Amount contribution by Employer:</label></td>
                  <td> <input readOnly name="empAmt"
-        value={(this.state.employerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100} /></td>
+        value={parseFloat((this.state.employerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100).toFixed(2)} /></td>
                  
              </tr>
              </div>
@@ -156,7 +156,7 @@ class DisabilityInvestmentComponent extends Component {
              <tr>
                  <td><label>Amount you contributed</label></td>
                  <td> <input readOnly name="empAmt"
-        value={(this.state.customerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100} /></td>
+        value={parseFloat((this.state.customerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100).toFixed(2)} /></td>
                  
              </tr>
                     
@@ -164,8 +164,8 @@ class DisabilityInvestmentComponent extends Component {
              <div>
                  <label>Your total Disability Contribution Savings is {
                       
-                     ((this.state.employerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100 +
-                     (this.state.customerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100)
+                     parseFloat(((this.state.employerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100 +
+                     (this.state.customerPercent*(this.state.annualIncome - (this.state.taxPercent*this.state.annualIncome)/100))/100)).toFixed(2)
                     
                      
                      } </label>

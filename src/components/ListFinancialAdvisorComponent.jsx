@@ -37,9 +37,12 @@ deleteFinancialAdvisor =(id) =>{
     return (
       <div>
         <h2 className="text-center">Financial Advisor List</h2>
+        <div className="margin">
        <div className="row">
          <button className="btn btn-primary p-2 m-2" onClick={this.addFinancialAdvisor} style={this.styles}>ADD Financial Advisor</button>
        </div>
+       </div>
+       <div className="margin">
         <div className="row">
           <table className="table table-striped table-bordered">
             <thead>
@@ -69,6 +72,7 @@ deleteFinancialAdvisor =(id) =>{
               ))}
             </tbody>
           </table>
+        </div>
         </div>
       </div>
     );
