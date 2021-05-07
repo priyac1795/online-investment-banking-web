@@ -22,8 +22,9 @@ class HomeComponent extends Component {
             </div>
             <br></br>
             <div>
-            <img src="https://www.flaticon.com/svg/vstatic/svg/633/633781.svg?token=exp=1619028138~hmac=87d2d46438ee73ac1c265bf7fd401096" width="130" height="130" />
+            <img src="https://cdn2.iconfinder.com/data/icons/user-23/512/User_Customers.png" width="130" height="130" />
             </div>
+            <br></br>
             <div>
                 <button className = "btn btn-info" onClick={this.onClickCustomerBtn}>Customer</button>
             </div>

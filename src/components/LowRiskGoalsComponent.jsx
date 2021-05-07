@@ -19,6 +19,7 @@ class LowRiskGoalsComponent extends Component {
          balance:'',
          customerInfoList:[],
          show: false,
+         showSavingsGoal: false,
          lowRiskGoal:[],
          balanceForSavings:'',
          savingsFor:'',
@@ -84,6 +85,11 @@ showBody =()=>{
     show : !this.state.show
   })
 }
+showSavingsGoalBody =()=>{
+  this.setState({
+    showSavingsGoal: !this.state.showSavingsGoal
+  })
+}
 
     saveInvestmentDetails=(e)=>{
       e.preventDefault();
@@ -102,7 +108,7 @@ showBody =()=>{
             balance: parseFloat(((this.props.customerAmtForInvest)-((this.props.customerAmtForInvest)*(this.state.percentToPay)/100) - this.state.estimatedCost)).toFixed(2),
           savingsFor: this.state.savingsFor,
           estimatedCost: this.state.estimatedCost,
-          monthlySavings: this.state.estimatedCost/12
+          monthlySavings: parseFloat(this.state.estimatedCost/12).toFixed(2)
         }
         ];
          console.log(JSON.stringify(this.state.lowRiskGoal));
@@ -114,7 +120,7 @@ showBody =()=>{
             <h1>Low Risk</h1>
               <Card>
   <Card.Header as="h5">Education Goal
-  <button onClick = {this.showBody} >Click</button>
+  <button onClick = {this.showBody} className = "btn btn-info m-2" >Click</button>
   </Card.Header>
   { this.state.show ? 
   <Card.Body>
@@ -178,9 +184,9 @@ showBody =()=>{
 
 <Card>
   <Card.Header as="h5">Savings Goal
-  <button onClick = {this.showBody} >Click</button>
+  <button onClick = {this.showSavingsGoalBody} className = "btn btn-info m-2">Click</button>
   </Card.Header>
-  { this.state.show ? 
+  { this.state.showSavingsGoal ? 
   <Card.Body>
     <Card.Text>
         <form>
@@ -207,7 +213,7 @@ showBody =()=>{
          <tr> 
          <td><label>Monthly Savings:</label></td>
          <td> <input readOnly name="monthlySavings"
-        value={this.state.estimatedCost/12}/></td>
+        value={parseFloat(this.state.estimatedCost/12).toFixed(2)}/></td>
       </tr>
       </table>
      </form>
